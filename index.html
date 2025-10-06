@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dancing Cat Surprise 😺</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffe6eb, #fff0f5);
+    text-align: center;
+    padding-top: 150px;
+    color: #4a274f;
+    transition: background 1s ease;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    color: #d14d72;
+  }
+
+  button {
+    margin-top: 30px;
+    padding: 15px 35px;
+    background-color: #ff9bb0;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background-color: #ff7b9c;
+    transform: scale(1.05);
+  }
+
+  .cat-container {
+    display: none;
+    margin-top: 40px;
+    animation: fadeIn 1s ease;
+  }
+
+  img {
+    width: 250px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  .music {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>🎁 Open it?</h1>
+<button onclick="openSurprise()">Open 🎀</button>
+
+<div class="cat-container" id="catContainer">
+  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnBzdHQ2MnU4OHd5bDE3ZHE4MmNheWxvdDNiaGF1ZHQyNDBncmZyZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cno2xWuCqkG6A/giphy.gif" alt="Dancing Cat">
+</div>
+
+<audio class="music" id="music" loop>
+  <source src="https://www.dropbox.com/scl/fi/ss04fshmyh8gh8hc1h5k8/happy-music.mp3?raw=1" type="audio/mp3">
+</audio>
+
+<script>
+function openSurprise() {
+  document.querySelector("button").style.display = "none";
+  document.querySelector("h1").style.display = "none";
+  const catDiv = document.getElementById("catContainer");
+  catDiv.style.display = "block";
+  document.body.style.background = "linear-gradient(135deg, #ffd6e8, #fff9fc)";
+  
+  const music = document.getElementById("music");
+  music.play().catch(() => {
+    alert("Click anywhere to allow the music 🎵");
+  });
+}
+</script>
+
+</body>
+</html>
